@@ -14,9 +14,9 @@ def parse(url):
     film_info = soup.find_all('div', class_='margin_top_5')
     film_rate = soup.find_all('span', class_='p-rate-flag__text')
 
-    print(type(film_names))
-    print(type(film_info))
-    print(type(film_rate))
+    #print(type(film_names))
+    #print(type(film_info))
+    #print(type(film_rate))
     
     for name in film_names:
         print(name.text)
@@ -30,12 +30,15 @@ def parse(url):
     for rate in film_rate:
         
         print(rate.text)
+    film_state = (film_names + film_info + film_rate)
     
-    #print(soup.text)
+    print(film_state.text)
     #with open('film_list_by_pandas.csv', 'w', newline='') as films: #csv файл с добавлением данных из цикла
     #    field_names = ['film_name',
     #                   'film_imfo',
     #                   'film_rate']
-    #    data = pd.DataFrame(films, columns=field_names)
+    #    
+    #    for info in film_info:
+    #        data = pd.DataFrame(films, columns=field_names)
 
 
