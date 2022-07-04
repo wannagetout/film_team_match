@@ -1,9 +1,9 @@
-import parser
+from db import parser 
 import time
 import random
 
 if __name__ == "__main__":
-    for page in range(1, 1230):   #перебор номеров страниц по образцу page='num'
+    for page in range(2, 4):   #перебор номеров страниц по образцу page='num'
         u = 'https://kino.mail.ru/cinema/all/?order=name&page=' + str(page)
         parser.parse(u) #вызов парсера
         print(u) #чек-поинт считанной страницы
