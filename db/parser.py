@@ -35,15 +35,22 @@ def parse(url):
     #print(film_rate)
     #film_state = (film_names + film_info + film_rate).get_text()
     #print(film_state)
-
-        
-    with open('film_list_by_pandas.csv', 'w', newline='') as films: #csv файл с добавлением данных из цикла
-        field_names = ['film_name',
-                       'film_imfo',
-                       'film_rate']
-        film_name_data = pd.DataFrame(film_names_list, columns=field_names[0])
-        film_info_data = pd.DataFrame(film_info_list, columns=field_names[1])
-        film_rate_data = pd.DataFrame(film_rate_list, columns=field_names[2])
+    names_series = pd.Series(film_names_list)
+    info_series = pd.Series(film_info_list)
+    rate_series = pd.Series(film_rate_list)
+    
+    
+    
+    with open('film_list_by_pandas.csv', 'a', newline='') as films: #csv файл с добавлением данных из цикла
+        field_names = ['film_name']
+        fiesld_info =['film_imfo']
+        film_rate = ['film_rate']
+        film_names = pd.DataFrame(names_series, columns=field_names)
+        film_info_data = pd.DataFrame(info_series, columns=fiesld_info)
+        film_rate_data = pd.DataFrame(rate_series, columns=film_rate)
+        print(film_names)
+        print(film_info_data)
+        print(film_rate_data)
     #    
     #    for info in film_info:
     #        data = pd.DataFrame(films, columns=field_names)
